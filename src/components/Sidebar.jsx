@@ -41,15 +41,15 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
   // Animation variants for the sidebar
   const desktopSidebarVariants = {
     open: {
-      x: 0,
-      transition: {
+      width: "18rem",
+      transition: { 
         type: 'tween',
         duration: 0.25,
         ease: 'easeOut'
       }
     },
     closed: {
-      x: '-100%', 
+      width: 0,
       transition: {
         type: 'tween',
         duration: 0.25,
@@ -72,7 +72,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       transition: {
         type: 'tween',
         duration: 0.3,
-        ease: 'easeIn'
+        ease: 'easeIn' 
       }
     }
   };
@@ -103,14 +103,14 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 
       {/* Sidebar */}
       <AnimatePresence>
-        {(isOpen || (!isMobile && isOpen)) && (
+        {isOpen && (
           <motion.aside
-            initial={isMobile ? "closed" : isOpen ? "open" : "closed"}
+            initial={isMobile ? "closed" : "closed"}
             animate="open"
             exit="closed"
             variants={isMobile ? mobileSidebarVariants : desktopSidebarVariants}
-            className={`fixed top-0 left-0 h-full bg-white dark:bg-surface-800 shadow-lg transition-all duration-300 w-72 
-                        ${isMobile ? 'z-50' : 'z-30'} overflow-hidden`}
+            className={`fixed top-0 left-0 h-full bg-white dark:bg-surface-800 shadow-lg 
+                      ${isMobile ? 'z-50 w-72' : 'z-30'} overflow-hidden`}
           >
             <div className="flex flex-col h-full">
               {/* Logo/App Name */}
