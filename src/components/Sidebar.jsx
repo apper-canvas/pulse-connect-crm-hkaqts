@@ -117,7 +117,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               <div className="flex items-center justify-between px-6 py-6 border-b border-surface-200 dark:border-surface-700">
                 <div className="flex items-center">
                   <Zap className="w-6 h-6 text-primary dark:text-primary-light mr-2" />
-                  <h1 className="text-xl font-bold text-primary dark:text-primary-light">PulseConnect</h1>
+                  <h1 className="text-xl font-bold text-primary dark:text-primary-light">PulseBeat</h1>
                 </div>
                 {!isMobile && (
                   <button 
