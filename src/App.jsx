@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import getIcon from './utils/iconUtils';
 import Home from './pages/Home';
+import Contacts from './pages/Contacts';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home toggleDarkMode={toggleDarkMode} />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </AnimatePresence>
 

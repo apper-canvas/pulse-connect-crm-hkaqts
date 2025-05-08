@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 import getIcon from '../utils/iconUtils';
 import MainFeature from '../components/MainFeature';
 
@@ -71,13 +72,13 @@ const Home = () => {
           </div>
           
           <div className="mt-4 md:mt-0">
-            <button 
+            <Link 
+              to="/contacts"
               className="btn-primary flex items-center gap-2 group"
-              onClick={() => toast.info("This would open the 'Add New Contact' form in a full implementation.")}
             >
               <span className="inline-block group-hover:scale-110 transition-transform">+</span>
               <span>New Contact</span>
-            </button>
+            </Link>
           </div>
         </div>
       </header>
