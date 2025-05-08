@@ -7,6 +7,7 @@ import getIcon from './utils/iconUtils';
 import Home from './pages/Home';
 import MainLayout from './layouts/MainLayout';
 import Contacts from './pages/Contacts';
+import Deals from './pages/Deals';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home toggleDarkMode={toggleDarkMode} />} />
             <Route path="/contacts" element={<Contacts />} />
+            <Route path="/deals" element={<Deals />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
