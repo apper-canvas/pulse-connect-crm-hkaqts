@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import getIcon from './utils/iconUtils';
 import Home from './pages/Home';
+import MainLayout from './layouts/MainLayout';
 import Contacts from './pages/Contacts';
 import NotFound from './pages/NotFound';
 
@@ -51,9 +52,11 @@ function App() {
 
       <AnimatePresence mode="wait">
         <Routes>
-          <Route path="/" element={<Home toggleDarkMode={toggleDarkMode} />} />
+          <Route element={<MainLayout />}>
+            <Route path="/" element={<Home toggleDarkMode={toggleDarkMode} />} />
+            <Route path="/contacts" element={<Contacts />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
-          <Route path="/contacts" element={<Contacts />} />
         </Routes>
       </AnimatePresence>
 
