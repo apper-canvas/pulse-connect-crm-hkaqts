@@ -7,30 +7,28 @@ const MainLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   
+  // Get saved state outside useEffect to make it accessible throughout the component
+  const savedState = localStorage.getItem('sidebarOpen');
+  
   useEffect(() => {
     // Initialize sidebar state based on device and saved preference
-    const savedState = localStorage.getItem('sidebarOpen');
     const initialState = isMobile ? false : (savedState !== null ? JSON.parse(savedState) : true);
     setSidebarOpen(initialState);
     
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      if (mobile && sidebarOpen) {
+      if (mobile) {
         setSidebarOpen(false);
       }
     };
     
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [isMobile, savedState]);
   
-  useEffect(() => {
-    // Save sidebar state to localStorage when it changes
-    if (savedState !== null) {
-      setSidebarOpen(JSON.parse(savedState));
-    }
-  }, [sidebarOpen]);
+  // We don't need the second useEffect since we're handling the 
+  // saving in toggleSidebar and initialization in first useEffect
 
   const toggleSidebar = () => {
     const newState = !sidebarOpen;
