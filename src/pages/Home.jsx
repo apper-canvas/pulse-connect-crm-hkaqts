@@ -6,7 +6,7 @@ import getIcon from '../utils/iconUtils';
 import MainFeature from '../components/MainFeature';
 
 const Home = () => {
-      animate={{ opacity: 1, transition: { delay: 0.1 } }}
+  const [isLoading, setIsLoading] = useState(true);
   const [stats, setStats] = useState({
     contacts: 0,
     deals: 0,
