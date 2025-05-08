@@ -64,7 +64,7 @@ const Home = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between">
           <div>
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-surface-900 dark:text-surface-100 mb-2">
-              PulseConnect <span className="text-primary">CRM</span>
+              PulseBeat <span className="text-primary">CRM</span>
             </h1>
             <p className="text-surface-600 dark:text-surface-400 max-w-2xl">
               Streamline your customer relationships and boost sales efficiency.
