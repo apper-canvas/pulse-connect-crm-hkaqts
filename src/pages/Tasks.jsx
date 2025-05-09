@@ -359,8 +359,8 @@ const Tasks = () => {
                           {task.description}
                         </span>
                       </div>
+                    </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <TaskStatusBadge status={task.status} />
                       <TaskStatusBadge status={task.status} />
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -395,6 +395,7 @@ const Tasks = () => {
                   </tr>
                 ))
               ) : (
+                <tr>
                   <td colSpan="7" className="px-6 py-10 text-center text-surface-500 dark:text-surface-400">
                     No tasks found. Try adjusting your filters or create a new task.
                   </td>
