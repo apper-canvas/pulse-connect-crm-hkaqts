@@ -297,6 +297,7 @@ const Tasks = () => {
                     )}
                   </div>
                 </th>
+                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                   <div className="flex items-center cursor-pointer" onClick={() => handleSort('status')}>
                     Status
                     {sortConfig.key === 'status' && (
@@ -304,7 +305,6 @@ const Tasks = () => {
                     )}
                   </div>
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                 <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                   <div className="flex items-center cursor-pointer" onClick={() => handleSort('priority')}>
                     Priority
@@ -361,7 +361,7 @@ const Tasks = () => {
                       </div>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <TaskStatusBadge status={task.status} />
-                    </td>
+                      <TaskStatusBadge status={task.status} />
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <TaskPriorityBadge priority={task.priority} />
@@ -396,7 +396,6 @@ const Tasks = () => {
                 ))
               ) : (
                   <td colSpan="7" className="px-6 py-10 text-center text-surface-500 dark:text-surface-400">
-                  <td colSpan="6" className="px-6 py-10 text-center text-surface-500 dark:text-surface-400">
                     No tasks found. Try adjusting your filters or create a new task.
                   </td>
                 </tr>
