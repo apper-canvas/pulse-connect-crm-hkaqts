@@ -285,9 +285,9 @@ const Tasks = () => {
             <thead className="bg-surface-100 dark:bg-surface-700 text-surface-800 dark:text-surface-200">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
-                  <div className="flex items-center cursor-pointer" onClick={() => toggleTaskStatus()}>
-                    Status
-                  </div>
+                  <div className="flex items-center">
+                    Complete
+                  </div>                  
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                   <div className="flex items-center cursor-pointer" onClick={() => handleSort('title')}>
@@ -297,6 +297,14 @@ const Tasks = () => {
                     )}
                   </div>
                 </th>
+                  <div className="flex items-center cursor-pointer" onClick={() => handleSort('status')}>
+                    Status
+                    {sortConfig.key === 'status' && (
+                      sortConfig.direction === 'asc' ? <ArrowUp className="ml-1 w-3 h-3" /> : <ArrowDown className="ml-1 w-3 h-3" />
+                    )}
+                  </div>
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                 <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                   <div className="flex items-center cursor-pointer" onClick={() => handleSort('priority')}>
                     Priority
@@ -351,6 +359,9 @@ const Tasks = () => {
                           {task.description}
                         </span>
                       </div>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <TaskStatusBadge status={task.status} />
+                    </td>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <TaskPriorityBadge priority={task.priority} />
@@ -384,7 +395,7 @@ const Tasks = () => {
                   </tr>
                 ))
               ) : (
-                <tr>
+                  <td colSpan="7" className="px-6 py-10 text-center text-surface-500 dark:text-surface-400">
                   <td colSpan="6" className="px-6 py-10 text-center text-surface-500 dark:text-surface-400">
                     No tasks found. Try adjusting your filters or create a new task.
                   </td>
