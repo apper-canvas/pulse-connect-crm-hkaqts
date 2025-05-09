@@ -1,38 +1,29 @@
 import React from 'react';
-import getIcon from '../../utils/iconUtils';
 
 const TaskPriorityBadge = ({ priority }) => {
-  const AlertCircle = getIcon('AlertCircle');
-  
-  // Define style configurations for different priorities
-  const priorityConfig = {
-    'high': {
-      bg: 'bg-red-100 dark:bg-red-900/30',
-      text: 'text-red-800 dark:text-red-300',
-      label: 'High',
-      icon: true
-    },
-    'medium': {
-      bg: 'bg-orange-100 dark:bg-orange-900/30',
-      text: 'text-orange-800 dark:text-orange-300',
-      label: 'Medium',
-      icon: false
-    },
-    'low': {
-      bg: 'bg-green-100 dark:bg-green-900/30',
-      text: 'text-green-800 dark:text-green-300',
-      label: 'Low',
-      icon: false
-    }
-  };
+  let bgColor = '';
+  let textColor = '';
+  let priorityText = '';
 
-  const config = priorityConfig[priority] || priorityConfig.medium;
+  switch (priority) {
+    case 'high':
+      bgColor = 'bg-red-100 dark:bg-red-900';
+      textColor = 'text-red-800 dark:text-red-200';
+      priorityText = 'High';
+      break;
+    case 'medium':
+      bgColor = 'bg-orange-100 dark:bg-orange-900';
+      textColor = 'text-orange-800 dark:text-orange-200';
+      priorityText = 'Medium';
+      break;
+    default: // low
+      bgColor = 'bg-green-100 dark:bg-green-900';
+      textColor = 'text-green-800 dark:text-green-200';
+      priorityText = 'Low';
+  }
 
   return (
-    <span className={`${config.bg} ${config.text} inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium`}>
-      {config.icon && <AlertCircle className="w-3 h-3 mr-1" />}
-      {config.label}
-    </span>
+    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${bgColor} ${textColor}`}>{priorityText}</span>
   );
 };
 

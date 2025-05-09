@@ -1,31 +1,29 @@
 import React from 'react';
 
 const TaskStatusBadge = ({ status }) => {
-  // Define style configurations for different statuses
-  const statusConfig = {
-    'pending': {
-      bg: 'bg-yellow-100 dark:bg-yellow-900',
-      text: 'text-yellow-800 dark:text-yellow-200',
-      label: 'Pending'
-    },
-    'in-progress': {
-      bg: 'bg-blue-100 dark:bg-blue-900',
-      text: 'text-blue-800 dark:text-blue-200',
-      label: 'In Progress'
-    },
-    'completed': {
-      bg: 'bg-green-100 dark:bg-green-900',
-      text: 'text-green-800 dark:text-green-200',
-      label: 'Completed'
-    }
-  };
+  let bgColor = '';
+  let textColor = '';
+  let statusText = '';
 
-  const config = statusConfig[status] || statusConfig.pending;
+  switch (status) {
+    case 'completed':
+      bgColor = 'bg-green-100 dark:bg-green-900';
+      textColor = 'text-green-800 dark:text-green-200';
+      statusText = 'Completed';
+      break;
+    case 'in-progress':
+      bgColor = 'bg-blue-100 dark:bg-blue-900';
+      textColor = 'text-blue-800 dark:text-blue-200';
+      statusText = 'In Progress';
+      break;
+    default: // pending
+      bgColor = 'bg-yellow-100 dark:bg-yellow-900';
+      textColor = 'text-yellow-800 dark:text-yellow-200';
+      statusText = 'Pending';
+  }
 
   return (
-    <span className={`${config.bg} ${config.text} inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium`}>
-      {config.label}
-    </span>
+    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${bgColor} ${textColor}`}>{statusText}</span>
   );
 };
 
