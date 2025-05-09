@@ -9,6 +9,7 @@ import MainLayout from './layouts/MainLayout';
 import Contacts from './pages/Contacts';
 import Tasks from './pages/Tasks';
 import Deals from './pages/Deals';
+import Reports from './pages/Reports';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
             <Route path="/contacts" element={<Contacts />} />
             <Route path="/deals" element={<Deals />} />
             <Route path="/tasks" element={<Tasks />} />
+            <Route path="/reports" element={<Reports />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
